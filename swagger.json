@@ -1,0 +1,230 @@
+{
+    "swagger": "2.0",
+    "info": {
+      "version": "1.0.0",
+      "title": "Merchandise Credit",
+      "description": "Merchandise Credit",
+      "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      }
+    },
+    "host": "localhost:8010",
+    "basePath": "/api/",
+    "tags": [
+      {
+        "name": "Accounts",
+        "description": "API for account in the system"
+      },
+      {
+        "name": "Transaction",
+        "description": "API for transaction in the system"
+      }
+    ],
+    "schemes": [
+      "http"
+    ],
+    "consumes": [
+      "application/json"
+    ],
+    "produces": [
+      "application/json"
+    ],
+    "paths": {
+      "/accounts": {
+        "post": {
+          "tags": [
+            "Accounts"
+          ],
+          "description": "Create new account in system",
+          "parameters": [
+            {
+              "name": "account",
+              "in": "body",
+              "description": "User that we want to create",
+              "schema": {
+                "$ref": "#/definitions/Account"
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "New account is created",
+              "schema": {
+                "$ref": "#/definitions/Account"
+              }
+            }
+          }
+        },     
+        "get": {
+          "tags": [
+            "Accounts"
+          ],
+          "summary": "Get all account list in system",
+          "responses": {
+            "200": {
+              "description": "OK",
+              "schema": {
+                "$ref": "#/definitions/Account"
+              }
+            }
+          }
+        }
+      },
+      "/accounts/{accountId}": {
+        "parameters": [
+          {
+            "name": "accountId",
+            "in": "path",
+            "description": "ID of user that we want to find",
+            "type": "string"
+          }
+        ],
+        "get": {
+          "tags": [
+            "Accounts"
+          ],
+          "summary": "Get account with given ID",
+          "responses": {
+            "200": {
+              "description": "Account is found",
+              "schema": {
+                "$ref": "#/definitions/Account"
+              }
+            }
+          }
+        },
+        "put": {
+          "tags": [
+            "Accounts"
+          ],
+          "description": "Update account in system",
+          "parameters": [
+            {
+              "name": "account",
+              "in": "body",
+              "description": "User that we want to create",
+              "schema": {
+                "$ref": "#/definitions/Account"
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "Account is updated",
+              "schema": {
+                "$ref": "#/definitions/Account"
+              }
+            }
+          }
+        },
+        "delete": {
+          "tags": [
+            "Accounts"
+          ],
+          "description": "Account delete in system",
+          "parameters": [
+            {
+              "name": "account",
+              "in": "body",
+              "description": "Account is deleted",
+              "schema": {
+                "$ref": "#/definitions/Account"
+              }
+            }
+          ],
+          "produces": [
+            "application/json"
+          ],
+          "responses": {
+            "200": {
+              "description": "Account is deleted",
+              "schema": {
+                "$ref": "#/definitions/Account"
+              }
+            }
+          }
+        }
+      },
+    "/transactions": {
+      "post": {
+        "tags": [
+          "Transaction"
+        ],
+        "description": "Create transaction in system",
+        "parameters": [
+          {
+            "name": "transaction",
+            "in": "body",
+            "description": "User that we want to create",
+            "schema": {
+              "$ref": "#/definitions/Transaction"
+            }
+          }
+        ],
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "New account is created",
+            "schema": {
+              "$ref": "#/definitions/Transaction"
+            }
+          }
+        }
+      },     
+      "get": {
+        "tags": [
+          "Transaction"
+        ],
+        "summary": "Get all transaction list in system",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "schema": {
+              "$ref": "#/definitions/Transaction"
+            }
+          }
+        }
+      }
+    }    
+  },
+  "definitions":{
+    "Account": {
+      "properties": {
+        "externalId": {
+          "type": "string"
+        },
+        "amount": {
+          "type": "string"
+        },
+        "remark": {
+          "type": "string"
+        }
+      }
+    },
+    "Transaction": {
+      "properties": {
+        "accountId": {
+          "type": "integer"
+        },
+        "amount": {
+          "type": "string"
+        },
+        "remark": {
+          "type": "string"
+        },
+        "paymentType": {
+          "type": "string"
+        }
+      }
+    }  
+  } 
+  }
