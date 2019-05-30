@@ -6,9 +6,7 @@ let chaiHttp = require('chai-http');
 let server = require('../index');
 let should = chai.should();
 
-
 chai.use(chaiHttp);
-
 describe('/GET api/accounts', () => {
     it('it should GET all the accounts', (done) => {
           chai.request(server)
@@ -29,9 +27,9 @@ describe('/GET api/accounts', () => {
           chai.request(server)
           .get('/api/accounts/1')
           .end((err, res) => {
-                res.should.have.status(200);
-                
+                res.should.have.status(200);           
             done();
           });
     });
 });
+

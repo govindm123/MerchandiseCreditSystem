@@ -19,7 +19,15 @@ exports.create = (req, res) => {
 exports.findAll = (req, res) => {
 	Account.findAll().then(accounts => {
 		// Send all Account to Client
+		console.log(accounts);
+		if(accounts.length> 0)
+		{
 			res.send(accounts);
+		}
+		else
+		{
+			res.status(200).send("Account not found");
+		}
 	});
 };
 
