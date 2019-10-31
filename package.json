@@ -20,7 +20,7 @@
     "fs": "0.0.1-security",
     "morgan": "^1.9.1",
     "mysql2": "^1.6.5",
-    "sequelize": "^4.37.6",
+    "sequelize": "^5.15.1",
     "swagger-jsdoc": "^3.2.8",
     "swagger-ui-express": "^4.0.2",
     "yamljs": "^0.3.0"
